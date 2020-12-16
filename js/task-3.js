@@ -36,5 +36,5 @@ const imagesList = images.map(slide => createGallery(slide));
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('js-gallery');
 
-// Добавлени в DOM каждого слайда через распыление из переменной imagesList
+// Добавление в DOM каждого слайда через распыление из переменной imagesList
 galleryRef.append(...imagesList);
