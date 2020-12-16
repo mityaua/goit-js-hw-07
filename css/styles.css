@@ -1,3 +1,9 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 .js-gallery {
   display: flex;
   justify-content: center;
@@ -5,6 +11,10 @@
 
 .js-gallery__link {
   list-style: none;
+}
+
+.js-gallery__link:not(:last-child) {
+    margin-right: 5px;
 }
 
 .js-gallery__img {

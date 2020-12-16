@@ -13,22 +13,28 @@ const images = [
     url:
       'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     alt: 'Group of Horses Running',
-    },
+  },
 ];
 
-const createGallery = obj =>
-  obj.map(picture => {
-    const item = document.createElement('li');
-    item.classList.add('js-gallery__link');
-    const image = document.createElement('img');
-    image.setAttribute('src', picture.url);
-    image.setAttribute('alt', picture.alt);
-    image.classList.add('js-gallery__img');
-    item.append(image);
-    const galleryRef = document.querySelector('#gallery');
-    galleryRef.appendChild(item);
-    galleryRef.classList.add('js-gallery');
-    return galleryRef;
-  });
+// Функция для создания галлерии, которая принимает один слайд, с телом, которое создает элемент списка, добавляем ему класс, создает картинку, добавляет ей два атрибута и один класс. Тег с картинкой добавлет внутри элемента списка. Возвращает элемент списка.
+const createGallery = slide => {
+  const item = document.createElement('li');
+  item.classList.add('js-gallery__link');
+  const image = document.createElement('img');
+  image.setAttribute('src', slide.url);
+  image.setAttribute('alt', slide.alt);
+  // image.setAttribute('title', slide.alt);
+  image.classList.add('js-gallery__img');
+  item.append(image);
+  return item;
+};
 
-createGallery(images);
+// Переменна для перебора массива обьектов images, которая возвращает вызов функции создания галлереи для каждого слайда.
+const imagesList = images.map(slide => createGallery(slide));
+
+// Переменна, которая находит нужный ID в DOM, а также добавляет класс.
+const galleryRef = document.querySelector('#gallery');
+galleryRef.classList.add('js-gallery');
+
+// Добавлени в DOM каждого слайда через распыление из переменной imagesList
+galleryRef.append(...imagesList);
