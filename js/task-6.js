@@ -5,8 +5,13 @@
 
 const inputRef = document.querySelector('#validation-input');
 
-inputRef.addEventListener('blur', event => {
-  if (event.target.value.length === Number(inputRef.dataset.length)) {
-    inputRef.classList.add('valid');
-  } else inputRef.classList.add('invalid');
-});
+function checkinputLength(event) {
+    if (event.target.value.length === Number(inputRef.dataset.length)) {
+      inputRef.classList.add('valid');
+      inputRef.classList.remove('invalid');
+    } else {
+      inputRef.classList.add('invalid');
+    }
+};
+
+inputRef.addEventListener('blur', checkinputLength);
