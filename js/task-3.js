@@ -16,25 +16,39 @@ const images = [
   },
 ];
 
-// Функция для создания галлерии, которая принимает один слайд, с телом, которое создает элемент списка, добавляем ему класс, создает картинку, добавляет ей два атрибута и один класс. Тег с картинкой добавлет внутри элемента списка. Возвращает элемент списка.
-const createGallery = slide => {
-  const item = document.createElement('li');
-  item.classList.add('js-gallery__link');
-  const image = document.createElement('img');
-  image.setAttribute('src', slide.url);
-  image.setAttribute('alt', slide.alt);
-  // image.setAttribute('title', slide.alt);
-  image.classList.add('js-gallery__img');
-  item.append(image);
-  return item;
-};
-
-// Переменна для перебора массива обьектов images, которая возвращает вызов функции создания галлереи для каждого слайда.
-const imagesList = images.map(slide => createGallery(slide));
-
-// Переменна, которая находит нужный ID в DOM, а также добавляет класс.
+// Первый вариант, согласно ТЗ
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('js-gallery');
 
-// Добавление в DOM каждого слайда через распыление из переменной imagesList
-galleryRef.append(...imagesList);
+const createGallery = images.map(image => {
+  galleryRef.insertAdjacentHTML(
+    'afterbegin',
+    `<li class="js-gallery__link">
+<img class="js-gallery__img" src="${image.url}" alt="${image.alt}">
+</li>`,
+  );
+});
+
+// Второй вариант, без insertAdjacentHTML
+
+// // Функция для создания галлерии, которая принимает один слайд, с телом, которое создает элемент списка, добавляем ему класс, создает картинку, добавляет ей два атрибута и один класс. Тег с картинкой добавлет внутри элемента списка. Возвращает элемент списка.
+// const createGallery = slide => {
+//   const item = document.createElement('li');
+//   item.classList.add('js-gallery__link');
+//   const image = document.createElement('img');
+//   image.setAttribute('src', slide.url);
+//   image.setAttribute('alt', slide.alt);
+//   image.classList.add('js-gallery__img');
+//   item.append(image);
+//   return item;
+// };
+
+// // Переменна для перебора массива обьектов images, которая возвращает вызов функции создания галлереи для каждого слайда.
+// const imagesList = images.map(slide => createGallery(slide));
+
+// // Переменна, которая находит нужный ID в DOM, а также добавляет класс.
+// const galleryRef = document.querySelector('#gallery');
+// galleryRef.classList.add('js-gallery');
+
+// // Добавление в DOM каждого слайда через распыление из переменной imagesList
+// galleryRef.append(...imagesList);
