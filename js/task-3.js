@@ -16,21 +16,31 @@ const images = [
   },
 ];
 
-// Первый вариант, согласно ТЗ
+// Третий вариант, согласно ТЗ
 const galleryRef = document.querySelector('#gallery');
 galleryRef.classList.add('js-gallery');
 
-const createGallery = images.map(image => {
-  galleryRef.insertAdjacentHTML(
-    'afterbegin',
-    `<li class="js-gallery__link">
-<img class="js-gallery__img" src="${image.url}" alt="${image.alt}">
-</li>`,
-  );
-});
+const createGallery = images.map(
+  image =>
+    (image = `<li class="js-gallery__link"><img src="${image.url}" alt="${image.alt}" class="js-gallery__img"></li>`),
+);
+
+gallery.insertAdjacentHTML('afterbegin', createGallery.join(''));
+
+// Первый вариант, согласно ТЗ
+// const galleryRef = document.querySelector('#gallery');
+// galleryRef.classList.add('js-gallery');
+
+// const createGallery = images.map(image => {
+//   galleryRef.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li class="js-gallery__link">
+// <img class="js-gallery__img" src="${image.url}" alt="${image.alt}">
+// </li>`,
+//   );
+// });
 
 // Второй вариант, без insertAdjacentHTML
-
 // // Функция для создания галлерии, которая принимает один слайд, с телом, которое создает элемент списка, добавляем ему класс, создает картинку, добавляет ей два атрибута и один класс. Тег с картинкой добавлет внутри элемента списка. Возвращает элемент списка.
 // const createGallery = slide => {
 //   const item = document.createElement('li');
@@ -43,10 +53,10 @@ const createGallery = images.map(image => {
 //   return item;
 // };
 
-// // Переменна для перебора массива обьектов images, которая возвращает вызов функции создания галлереи для каждого слайда.
+// // Переменная для перебора массива обьектов images, которая возвращает вызов функции создания галлереи для каждого слайда.
 // const imagesList = images.map(slide => createGallery(slide));
 
-// // Переменна, которая находит нужный ID в DOM, а также добавляет класс.
+// // Переменная, которая находит нужный ID в DOM, а также добавляет класс.
 // const galleryRef = document.querySelector('#gallery');
 // galleryRef.classList.add('js-gallery');
 

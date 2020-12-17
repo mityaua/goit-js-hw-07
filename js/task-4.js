@@ -6,8 +6,12 @@
 
 const counterRef = document.querySelector('#counter');
 const counterValueRef = counterRef.querySelector('#value');
-const decrementbtnRef = counterRef.querySelector('[data-action="decrement"]');
-const incrementbtnRef = counterRef.querySelector('[data-action="increment"]');
+const decrementbtnRef = counterRef.querySelector(
+  'button[data-action="decrement"]',
+);
+const incrementbtnRef = counterRef.querySelector(
+  'button[data-action="increment"]',
+);
 
 let counterValue = 0;
 
@@ -26,8 +30,8 @@ function increment() {
 
 // 1. Находим в DOM счётчик по ID
 // 2. Находим ID значения счётчика
-// 3. Находим кнопку + 1
-// 4. Находим кнопку - 1
+// 3. Находим кнопку увеличения счётчика
+// 4. Находим кнопку уменьшения счётчика
 // 5. Создаем переменную, которая содержит текущее значение счётчика
 // 6. Добавляем на обе кнопки слушателя событий (при клике) и коллбек функцию
 // 7. Создаем две функции, которые изменяют значение переменной на 1 и записывают переменную в textContent значения счётчика.

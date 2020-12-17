@@ -3,10 +3,12 @@
 const inputRef = document.querySelector('#name-input');
 const spanRef = document.querySelector('#name-output');
 
-inputRef.addEventListener(
-  'input',
-  event => (spanRef.textContent = event.target.value),
-);
+inputRef.addEventListener('input', event => {
+  if (event.target.value === '') {
+    return (spanRef.textContent = 'незнакомец');
+  }
+  return (spanRef.textContent = event.target.value);
+});
 
 // 1. Находим в DOM поле ввода по ID
 // 2. Находим в DOM по ID текст, который будем менять
