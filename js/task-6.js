@@ -5,14 +5,17 @@
 
 const inputRef = document.querySelector('#validation-input');
 
-function checkinputLength(event) {
-  if (event.target.value.length === Number(inputRef.dataset.length)) {
+function checkinputLength() {
+  if (inputRef.value.length === Number(inputRef.dataset.length)) {
     inputRef.classList.add('valid');
-    inputRef.classList.remove('invalid');
   } else {
     inputRef.classList.add('invalid');
-    inputRef.classList.remove('valid');
   }
 }
 
+function inputFocus() {
+  inputRef.classList.remove('valid', 'invalid');
+}
+
 inputRef.addEventListener('blur', checkinputLength);
+inputRef.addEventListener('focus', inputFocus);
