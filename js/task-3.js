@@ -37,19 +37,6 @@ const createGallery = images.map(
 
 galleryRef.insertAdjacentHTML('afterbegin', createGallery.join(''));
 
-// Второй вариант, согласно ТЗ
-// const galleryRef = document.querySelector('#gallery');
-// galleryRef.classList.add('js-gallery');
-
-// const createGallery = images.map(image => {
-//   galleryRef.insertAdjacentHTML(
-//     'afterbegin',
-//     `<li class="js-gallery__link">
-// <img class="js-gallery__img" src="${image.url}" alt="${image.alt}">
-// </li>`,
-//   );
-// });
-
 // Первый вариант, без insertAdjacentHTML
 // // Функция для создания галлерии, которая принимает один слайд, с телом, которое создает элемент списка, добавляем ему класс, создает картинку, добавляет ей два атрибута и один класс. Тег с картинкой добавлет внутри элемента списка. Возвращает элемент списка.
 // const createGallery = slide => {
@@ -72,3 +59,17 @@ galleryRef.insertAdjacentHTML('afterbegin', createGallery.join(''));
 
 // // Добавление в DOM каждого слайда через распыление из переменной imagesList
 // galleryRef.append(...imagesList);
+
+
+// Второй вариант, согласно ТЗ
+// const galleryRef = document.querySelector('#gallery');
+// galleryRef.classList.add('js-gallery');
+
+// const createGallery = images.map(image => {
+//   galleryRef.insertAdjacentHTML(
+//     'afterbegin',
+//     `<li class="js-gallery__link">
+// <img class="js-gallery__img" src="${image.url}" alt="${image.alt}">
+// </li>`,
+//   );
+// });
