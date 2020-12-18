@@ -1,7 +1,7 @@
 // 1. Находим все DOM узлы по селектору класса item. В результате получаем Node массив;
 // 2. Выводим шаблонную строку с длинной данного массива;
 
-const categoryRef = document.querySelectorAll('.item');
+const categoryRef = document.querySelectorAll('#categories > .item');
 console.log(`В списке ${categoryRef.length} категории.`);
 
 // 1. Используем метод forEach, где перебираем получаенный выше массив. На каждой иттерации получаем каждый элемент списка categories отдельно;

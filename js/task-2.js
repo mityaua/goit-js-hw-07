@@ -13,7 +13,7 @@ const createList = ingredient => {
   listItem.textContent = ingredient;
   return listItem;
 };
-
+  
 // Переменна (список), в которой для массива инградиентов проводится иттерация и вызывается для каждого элемента массива функция для создания списка
 const listItems = ingredients.map(ingredient => createList(ingredient));
 
