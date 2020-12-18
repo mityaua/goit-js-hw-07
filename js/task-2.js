@@ -19,6 +19,5 @@ const listItems = ingredients.map(ingredient => createList(ingredient));
 
 // Переменная, которая находит в DOM нужный ID
 const ingredientsRef = document.querySelector('#ingredients');
-
 // Добавляет в DOM каждый элемент массива (с распылением)
 ingredientsRef.append(...listItems);

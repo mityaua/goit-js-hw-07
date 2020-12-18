@@ -35,7 +35,7 @@ const createGallery = images.map(
     (image = `<li class="js-gallery__link"><img src="${image.url}" alt="${image.alt}" class="js-gallery__img"></li>`),
 );
 
-gallery.insertAdjacentHTML('afterbegin', createGallery.join(''));
+galleryRef.insertAdjacentHTML('afterbegin', createGallery.join(''));
 
 // Второй вариант, согласно ТЗ
 // const galleryRef = document.querySelector('#gallery');
