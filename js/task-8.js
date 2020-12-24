@@ -23,6 +23,8 @@ destroyBtnRef.addEventListener('click', destroyBoxes);
 // Функция, которая в цикле создаёт дивы с привязкой к значению из инпута (которое приведено в число)
 function createBoxes(amount) {
   let divSize = 30;
+  let array = [];
+
   amount = inputRef.valueAsNumber;
 
   if (!amount) {
@@ -30,22 +32,19 @@ function createBoxes(amount) {
   }
 
   for (let i = 0; i < amount; i += 1) {
-    // Другой перебирающий метод?
     divSize += 10;
     const divItem = document.createElement('div');
-    divItem.style.width = `${divSize - 10}px`; // Бить по рукам за такое
-    divItem.style.height = `${divSize - 10}px`; // Бить по рукам за такое
+    divItem.style.width = `${divSize - 10}px`;
+    divItem.style.height = `${divSize - 10}px`;
     divItem.style.backgroundColor = randomColor();
-    boxesRef.append(divItem); // Убрать из цикла добавление в DOM
+    array.push(divItem);
   }
+
+  boxesRef.append(...array);
 }
 
 // Функция для удаления всего содержания блока
 function destroyBoxes() {
-  // const childBoxes = boxesRef.querySelectorAll('div');
-  // childBoxes.forEach(element => {
-  //   element.outerHTML = null;
-  // });
   boxesRef.innerHTML = null; // Рефакторинг без цикла
 }
 
