@@ -25,22 +25,28 @@ function createBoxes(amount) {
   let divSize = 30;
   amount = inputRef.valueAsNumber;
 
-  for (let i = 0; i < amount; i += 1) { // Другой перебирающий метод?
+  if (!amount) {
+    alert('Введите количество блоков для генерации');
+  }
+
+  for (let i = 0; i < amount; i += 1) {
+    // Другой перебирающий метод?
     divSize += 10;
     const divItem = document.createElement('div');
     divItem.style.width = `${divSize - 10}px`; // Бить по рукам за такое
     divItem.style.height = `${divSize - 10}px`; // Бить по рукам за такое
     divItem.style.backgroundColor = randomColor();
-    boxesRef.append(divItem);
+    boxesRef.append(divItem); // Убрать из цикла добавление в DOM
   }
 }
 
 // Функция для удаления всего содержания блока
 function destroyBoxes() {
-  const childBoxes = boxesRef.querySelectorAll('div');
-  childBoxes.forEach(element => {
-    element.outerHTML = null;
-  });
+  // const childBoxes = boxesRef.querySelectorAll('div');
+  // childBoxes.forEach(element => {
+  //   element.outerHTML = null;
+  // });
+  boxesRef.innerHTML = null; // Рефакторинг без цикла
 }
 
 // Функция-генератор случайного цвета
