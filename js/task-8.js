@@ -31,11 +31,12 @@ function createBoxes(amount) {
     alert('Введите количество блоков для генерации');
   }
 
+  // Попробовать заменить на другой перебирающий метод
   for (let i = 0; i < amount; i += 1) {
     divSize += 10;
     const divItem = document.createElement('div');
-    divItem.style.width = `${divSize - 10}px`;
-    divItem.style.height = `${divSize - 10}px`;
+    divItem.style.width = `${divSize}px`; // Для рефакторинга
+    divItem.style.height = `${divSize}px`; // Для рефакторинга
     divItem.style.backgroundColor = randomColor();
     array.push(divItem);
   }
@@ -43,25 +44,29 @@ function createBoxes(amount) {
   boxesRef.append(...array);
 }
 
-// Функция для удаления всего содержания блока
+// Функция для очистки коллекции и сброса значения инпута
 function destroyBoxes() {
-  boxesRef.innerHTML = null; // Рефакторинг без цикла
+  inputRef.valueAsNumber = null;
+  boxesRef.innerHTML = null;
 }
 
 // Функция-генератор случайного цвета
-function randomColor() {
-  let o = Math.round,
-    r = Math.random,
-    s = 255;
-  return (
-    'rgba(' +
-    o(r() * s) +
-    ',' +
-    o(r() * s) +
-    ',' +
-    o(r() * s) +
-    ',' +
-    r().toFixed(1) +
-    ')'
-  );
-}
+const randomColor = () =>
+  '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+// const randomColor = () => {
+//   let o = Math.round,
+//     r = Math.random,
+//     s = 255;
+//   return (
+//     'rgba(' +
+//     o(r() * s) +
+//     ',' +
+//     o(r() * s) +
+//     ',' +
+//     o(r() * s) +
+//     ',' +
+//     r().toFixed(1) +
+//     ')'
+//   );
+// };
